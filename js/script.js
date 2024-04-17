@@ -32,10 +32,20 @@ const renderPokemon = async (pokemon) => {
     pokemonName.innerHTML = data.name;
     pokemonNumber.innerHTML = data.id;
 
-    // chama o atributo 'src' do elemento de imagem do Pokémon como a URL do sprite animado do Pokémon,
-    // obtido dos dados da PokeAPI.
-    pokemonImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+    // Determinar a URL da imagem do Pokémon com base em sua geração usando operador ternário
+    const spritePath = data.id < 650 ? 
+    ['sprites', 'versions', 'generation-v', 'black-white', 'animated', 'front_default'] :
+    ['sprites', 'versions', 'generation-v', 'black-white', 'front_default'];
 
+    // Construir a URL da imagem do Pokémon
+    let spriteUrl = data;
+    for (const key of spritePath) {
+      spriteUrl = spriteUrl[key];
+    }
+
+    // Definir a URL da imagem do Pokémon
+    pokemonImage.src = spriteUrl;
+    
     input.value = '';
     searchPokemon = data.id;
 
