@@ -77,4 +77,35 @@ buttonNext.addEventListener('click', () => {
 
 });
 
+// Adicionar event listeners para as teclas de seta para cima e para baixo
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft') {
+    // Navegar para o Pokémon anterior
+    navigatePokemon(-1);
+  } else if (event.key === 'ArrowRight') {
+    // Navegar para o próximo Pokémon
+    navigatePokemon(1);
+  }
+
+  if (event.key === 'ArrowDown') {
+    // Navegar para o Pokémon anterior
+    navigatePokemon(-1);
+  } else if (event.key === 'ArrowUp') {
+    // Navegar para o próximo Pokémon
+    navigatePokemon(1);
+  }
+});
+
+
+// Função para navegar entre os Pokémon
+const navigatePokemon = (direction) => {
+  const newPokemonId = searchPokemon + direction;
+  if (newPokemonId >= 1) {
+    renderPokemon(newPokemonId);
+  }
+};
+
+// Função renderPokemon e outras partes do código...
+
+
 renderPokemon(searchPokemon);
