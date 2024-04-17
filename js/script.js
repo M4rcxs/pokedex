@@ -35,7 +35,7 @@ const renderPokemon = async (pokemon) => {
     // Determinar a URL da imagem do Pokémon com base em sua geração usando operador ternário
     const spritePath = data.id < 650 ? 
     ['sprites', 'versions', 'generation-v', 'black-white', 'animated', 'front_default'] :
-    ['sprites', 'versions', 'generation-v', 'black-white', 'front_default'];
+    ['sprites', 'front_default'];
 
     // Construir a URL da imagem do Pokémon
     let spriteUrl = data;
